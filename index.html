@@ -36,5 +36,42 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Display the current day
+        $("#currentDay").text(dayjs().format("dddd, MMMM D"));
+  
+        // Function to update timeblock colors
+        function updateTimeblockColors() {
+          $(".time-block").each(function () {
+            var currentHour = dayjs().hour();
+            var hour = parseInt($(this).find(".hour").data("hour"));
+            
+            if (hour < currentHour) {
+              $(this).addClass("past").removeClass("present future");
+            } else if (hour === currentHour) {
+              $(this).addClass("present").removeClass("past future");
+            } else {
+              $(this).addClass("future").removeClass("past present");
+            }
+          });
+        }
+  
+        // Generate timeblocks for each hour
+        var startHour = 9; // Adjust start hour as needed
+        var endHour = 17;  // Adjust end hour as needed
+  
+        for (var hour = startHour; hour <= endHour; hour++) {
+          var timeblock = $('<div>').addClass('row time-block');
+          timeblock.append($('<div>').addClass('hour col-md-1').data("hour", hour).text(formatHour(hour)));
+          timeblock.append($('<textarea>').addClass('description col-md-10'));
+          timeblock.append($('<button>').addClass('saveBtn col-md-1').html('<i class="fas fa-save"></i>'));
+  
+          $(".container").append(timeblock);
+        }
+
+        updateTimeblockColors();
+      });
+    </script>
   </body>
 </html>
