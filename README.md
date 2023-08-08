@@ -1,5 +1,18 @@
 # Third-Party APIs: Work Day Scheduler
 
+## Description
+
+This project involves developing a daily planner using DOM manipulation, advanced JavaScript, integration of third-party APIs, and more. The user is able to record tasks to the player and save them to local storage. The tasks are loaded from local storage upon reloading.
+
+## Deployment
+
+The project is deployed in the following URL: https://roliveira527.github.io/API-daily-planner-app-roliveira527/
+
+## Screenshots
+
+Screenshot of the daily planner:
+![daily planner demo](./images/screenshot.png)
+
 ## Your Task
 
 Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
