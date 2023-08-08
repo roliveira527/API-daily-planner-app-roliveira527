@@ -70,6 +70,16 @@
           $(".container").append(timeblock);
         }
 
+        function formatHour(hour) {
+          if (hour === 12) {
+            return "12 PM";
+          } else if (hour > 12) {
+            return (hour - 12) + " PM";
+          } else {
+            return hour + " AM";
+          }
+        }
+
         updateTimeblockColors();
       });
     </script>
