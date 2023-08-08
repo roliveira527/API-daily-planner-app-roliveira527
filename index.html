@@ -81,6 +81,23 @@
         }
 
         updateTimeblockColors();
+          
+        // Load events from local storage
+        $(".time-block").each(function () {
+          var hour = parseInt($(this).find(".hour").text());
+          var event = localStorage.getItem("event-" + hour);
+  
+          if (event) {
+            $(this).find(".description").val(event);
+          }
+        });
+  
+        // Save events to local storage
+        $(".saveBtn").on("click", function () {
+          var hour = parseInt($(this).siblings(".hour").text());
+          var event = $(this).siblings(".description").val();
+          localStorage.setItem("event-" + hour, event);
+        });
       });
     </script>
   </body>
